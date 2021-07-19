@@ -137,8 +137,8 @@ Mặc định site sẽ chạy ở localhost:8087
   `./project/manage.py collectstatic --no-input`
 
 - Bước 3:
-  Tiến hành code và dev trong thư mục `project/app/static/webpack_sources`
-  Các sources code của thư mục này sẽ được build tại thư mục `project/static/webpack_bundles`
+  Tiến hành code và dev trong thư mục `app/static/webpack_sources`
+  Các sources code của thư mục này sẽ được build tại thư mục `static/webpack_bundles`
 
 - Lưu ý:
   Tất cả các file static (js,css,svg,image) khi muốn nhúng vào html cần follow cú pháp sau:

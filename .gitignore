@@ -158,6 +158,6 @@ dmypy.json
 cython_debug/
 Pipfile.lock
 node_modules/*
-project/app/static/webpack_bundles/*
-project/webpack-stats.json
+app/static/webpack_bundles/*
+webpack-stats.json
 .idea
