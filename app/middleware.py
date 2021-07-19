@@ -28,9 +28,9 @@ class AutomaticUserLoginMiddleware(MiddlewareMixin):
     def process_request(self, request):
         if request.GET.get('adminr', None):
             auth.logout(request)
-            return redirect('/admin/login/?r=1')
+            return redirect('/save-lives/login/?r=1')
 
-        if not request.path == '/admin/login/' and\
+        if not request.path == '/save-lives/login/' and\
                 not request.user.is_authenticated and\
                 not request.GET.get('r', None):
             # NOTE: Following code is to bypass login page. Change username to default login user you want
