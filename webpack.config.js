@@ -15,11 +15,11 @@ module.exports = (env, argv) => {
     entry: {
       home_page_loader: path.resolve(
         __dirname,
-        "project/app/static/webpack_sources/js/index.js"
+        "app/static/webpack_sources/js/index.js"
       ),
     },
     output: {
-      path: path.resolve(__dirname, "project/app/static/webpack_bundles"),
+      path: path.resolve(__dirname, "app/static/webpack_bundles"),
       filename: "[name]-[hash].js",
       chunkFilename: "[name]-[chunkhash].js",
       publicPath,
