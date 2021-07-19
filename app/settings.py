@@ -27,9 +27,9 @@ DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
 
 env = environ.Env(
     DEBUG=(bool, True),
-    DB_NAME=(str, 'my_db'),
-    DB_USER=(str, 'my_admin'),
-    DB_PASSWORD=(str, 'my_password'),
+    DB_NAME=(str, 'endcovi'),
+    DB_USER=(str, 'postgres'),
+    DB_PASSWORD=(str, 'postgres'),
     DB_HOSTNAME=(str, 'localhost'),
     DB_PORT=(int, 5432),
     MAPBOX_KEY=(
@@ -245,13 +245,18 @@ if os.getenv('LOCAL', 'False') == 'True':
     # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
     DATABASES = {
-        "default": {
-            "ENGINE" : "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': env('DB_NAME'),
+            'USER': env('DB_USER'),
+            'PASSWORD': env('DB_PASSWORD'),
+            'HOST': env('DB_HOSTNAME'),
+            'PORT': env('DB_PORT'),
         }
     }
 
-    DEBUG=True
+
+   # DEBUG=True
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators

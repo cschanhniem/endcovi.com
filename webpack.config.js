@@ -57,7 +57,7 @@ module.exports = (env, argv) => {
         "process.env.STATIC_URL": JSON.stringify(publicPath),
       }),
       new BundleTracker({
-        path: path.join(__dirname, "project"),
+        path: path.join(__dirname, ""),
         filename: "webpack-stats.json",
       }),
       new MiniCssExtractPlugin({
