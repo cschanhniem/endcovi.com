@@ -333,10 +333,10 @@ class NguonLuc(models.Model):
 
 
 class TinTuc(models.Model):
-    title = models.TextField(blank=True, default='', verbose_name="Tin")
+    title = models.TextField(blank=True, default='', verbose_name="Tiêu Đề")
     url = models.TextField(blank=True, default='', verbose_name="Link")
     update_time = models.DateTimeField(auto_now=True, verbose_name='Cập nhật')
-    note = models.TextField(blank=True, default='', verbose_name='Ghi chú')
+    note = models.TextField(blank=True, default='', verbose_name='Nội Dung')
 
     def __str__(self):
         return self.title
