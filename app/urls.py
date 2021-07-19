@@ -34,7 +34,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     # path('api/', rest_admin.site.urls, name="rest_api"),
     path('chaining/', include('smart_selects.urls')),
-    url(r'^admin/dynamic_raw_id/', include('dynamic_raw_id.urls')),
+    url(r'^save-lives/dynamic_raw_id/', include('dynamic_raw_id.urls')),
 
     path('save-lives/', admin.site.urls, name="admin_home"),
     path('select2/', include('django_select2.urls')),
