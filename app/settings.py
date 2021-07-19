@@ -26,7 +26,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
 
 env = environ.Env(
-    DEBUG=(bool, True),
+    DEBUG=(bool, False),
     DB_NAME=(str, 'endcovi'),
     DB_USER=(str, 'postgres'),
     DB_PASSWORD=(str, 'postgres'),
