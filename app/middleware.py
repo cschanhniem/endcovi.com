@@ -34,7 +34,7 @@ class AutomaticUserLoginMiddleware(MiddlewareMixin):
                 not request.user.is_authenticated and\
                 not request.GET.get('r', None):
             # NOTE: Following code is to bypass login page. Change username to default login user you want
-            user = User.objects.get(username='user1')
+            user, created = User.objects.get_or_create(username='everyone')
             # user = User.objects.get(username='admin')
             request.user = user
             auth.login(request, user)
