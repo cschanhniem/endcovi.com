@@ -161,3 +161,4 @@ node_modules/*
 app/static/webpack_bundles/*
 webpack-stats.json
 .idea
+static
