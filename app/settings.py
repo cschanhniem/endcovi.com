@@ -349,15 +349,20 @@ CACHES = {
         }
     }
 
+
 if DEPLOY_ENV in ('staging', 'production'):
     # keep origin cache time setting
     DEPLOY_ENV_CACHE_MODIFIER = 1
+
     
     CACHES = {
         'default': {
-            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
-            'LOCATION': 'unique-snowflake',
-            "KEY_PREFIX": CACHE_PREFIX,
+        'BACKEND': 'django_bmemcached.memcached.BMemcached',
+        'LOCATION': os.environ.get('MEMCACHEDCLOUD_SERVERS').split(','),
+        'OPTIONS': {
+                    'username': os.environ.get('MEMCACHEDCLOUD_USERNAME'),
+                    'password': os.environ.get('MEMCACHEDCLOUD_PASSWORD')
+            }
         },
         'select2': {
             'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
