@@ -57,11 +57,11 @@ CÙNG CHUNG TAY KẾT THÚC ĐẠI DỊCH COVID-19
 1. Cài đặt các thư viện cần thiết (cần cài Python3.6 trở lên và Pip3 trước)
 
 ```
-pip3 install -r requirements/development.txt
+pip3 install -r requirements_development.txt
 ```
 Cài các thư viện để chạy test environment nếu cần thiết (thêm dummy data, chạy unittests)
 ```
-pip3 install -r requirements/testing.txt
+pip3 install -r requirements_testing.txt
 ```
 
 ~~2. Thay đổi cấu hình database từ postgresql sang sqlite (để chạy được ở local)~~
