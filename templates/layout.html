@@ -128,5 +128,15 @@
   {% block scripts_extra %}{% endblock %}
 
   {% csrf_token %}
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-78T5RKNBEK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-78T5RKNBEK');
+</script>
 </body>
 </html>
