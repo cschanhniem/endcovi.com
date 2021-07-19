@@ -66,7 +66,7 @@ pip3 install -r requirements_testing.txt
 
 ~~2. Thay đổi cấu hình database từ postgresql sang sqlite (để chạy được ở local)~~
 
-~~- trong file project/app/settings.py, comment out config postgresql và thay bằng phần config sqlite~~
+~~- trong file app/settings.py, comment out config postgresql và thay bằng phần config sqlite~~
 
 2. Cài đặt PostgreSQL và tạo database shema
 
@@ -109,7 +109,7 @@ bash run_create_admin.sh
 
 4. Mặc định đăng nhập site bằng tài khoản admin
 
-- trong file project/app/middleware.py, thay đổi username thành username của admin đã tạo ở bước 3
+- trong file app/middleware.py, thay đổi username thành username của admin đã tạo ở bước 3
 
 ## Môi trường dev
 
@@ -134,15 +134,15 @@ Mặc định site sẽ chạy ở localhost:8087
 
 - Bước 2:
   Chạy lệnh sau để render ra các static file của thư viện (thường thì chỉ dùng cho admin page)
-  `./project/manage.py collectstatic --no-input`
+  `./manage.py collectstatic --no-input`
 
 - Bước 3:
   Tiến hành code và dev trong thư mục `app/static/webpack_sources`
-  Các sources code của thư mục này sẽ được build tại thư mục `static/webpack_bundles`
+  Các sources code của thư mục này sẽ được build tại thư mục `app/static/webpack_bundles`
 
 - Lưu ý:
   Tất cả các file static (js,css,svg,image) khi muốn nhúng vào html cần follow cú pháp sau:
-  File này được tự động tìm trong `project/app/static`
+  File này được tự động tìm trong `app/static`
 
 ```html
 "{% static '/path/to/some_file' %}?v={{ REVISION }}"
