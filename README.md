@@ -4,13 +4,13 @@
 
 https://endcovi.com 
 
-Website phục vụ công tác hỗ trợ, cứu nạn theo mô hình crowdsource (huy động sức lực của cộng đồng để vận hành). Mô hình hoạt động theo nguyên tắc:
+Website phục vụ công tác hỗ trợ, hỗ trợ theo mô hình crowdsource (huy động sức lực của cộng đồng để vận hành). Mô hình hoạt động theo nguyên tắc:
 
 - Những người ở vùng an toàn tham gia làm Tình nguyện viên thông tin (Tự thêm tên & SĐT của mình vào Danh sách Tình nguyện viên)
 - Các tình nguyện viên thu thập dữ liệu kêu cứu của người dân, gọi điện xác minh và cập nhật kết quả vào Danh sách Hộ dân cần ứng cứu
 - Các tình nguyện viên thu thập dữ liệu từ các đơn vị hỗ trợ, gọi điện xác minh và cập nhật kết quả vào Danh sách Đơn vị hỗ trợ
 
-Bằng việc duy trì một nguồn thông tin đầy đủ, được cập nhật liên tục, các Tình nguyện viên giúp việc điều phối hoạt động hỗ trợ, cứu nạn hiệu quả hơn. Tránh tình trạng:
+Bằng việc duy trì một nguồn thông tin đầy đủ, được cập nhật liên tục, các Tình nguyện viên giúp việc điều phối hoạt động hỗ trợ, hỗ trợ hiệu quả hơn. Tránh tình trạng:
 
 - Hộ gia đình đã được ứng cứu, nhưng thông tin vẫn tiếp tục được chia sẻ trên MXH, cản trở hoạt động ứng cứu các gia đình cần kíp hơn
 - Người dân cần ứng cứu không nắm được thông tin và tình trạng của đơn vị hỗ trợ để gọi xin ứng cứu
