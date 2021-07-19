@@ -165,3 +165,12 @@ Ví dụ
 ```html
 curl -X GET [hostname]/api/cuuho/ -H 'Authorization: Token [api_token]'
 ```
+
+# Deploy to Heroku:
+
+Cần sử dụng 2 buildpack:
+
+```
+$ heroku buildpacks:add --index 1 heroku/python -a [ten-app] 
+$ heroku buildpacks:add --index 1 heroku/nodejs -a [ten-app]
+```
