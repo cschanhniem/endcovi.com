@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django.contrib.postgres',
     'django_extensions',
+    'cachalot'
 ]
 
 
@@ -329,12 +330,19 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.TokenAuthentication',
     ]
 }
-
+CACHE_PREFIX = f'cache_key_{REVISION}_'
+CACHES = {
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+            'LOCATION': 'unique-snowflake',
+            "KEY_PREFIX": CACHE_PREFIX,
+        }
+    }
 
 if DEPLOY_ENV in ('staging', 'production'):
     # keep origin cache time setting
     DEPLOY_ENV_CACHE_MODIFIER = 1
-    CACHE_PREFIX = f'cache_key_{REVISION}_'
+    
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
