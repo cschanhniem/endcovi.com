@@ -16,6 +16,10 @@ import sentry_sdk
 import calendar
 import time
 
+from dotenv import load_dotenv
+
+load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
@@ -33,7 +37,7 @@ env = environ.Env(
     DEPLOY_ENV=(str, 'local'),
     GIT_VERSION=(str, None),
     CSRF_COOKIE_SECURE=(bool, False),
-    SECRET_KEY=(str, 'change_me'),
+    SECRET_KEY=(str, 'changesdfdsfsdfsdf_me'),
 )
 env.read_env(
     os.path.join(BASE_DIR, '..', '.env')
@@ -43,7 +47,7 @@ env.read_env(
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env('SECRETdd_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
@@ -211,16 +215,41 @@ TEMPLATES = [
 WSGI_APPLICATION = 'app.wsgi.application'
 SITE_ID = 1
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOSTNAME'),
+#         'PORT': env('DB_PORT'),
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOSTNAME'),
-        'PORT': env('DB_PORT'),
+        "default": {
+            "ENGINE" : "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+        }
     }
-}
+
+DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+
+
+if os.getenv('LOCAL', 'False') == 'True':
+
+    # Database
+    # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+    DATABASES = {
+        "default": {
+            "ENGINE" : "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+        }
+    }
+
+    DEBUG=True
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
