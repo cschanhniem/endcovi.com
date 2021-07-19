@@ -17,6 +17,7 @@ import calendar
 import time
 
 from dotenv import load_dotenv
+import dj_database_url
 
 load_dotenv()
 
@@ -47,7 +48,7 @@ env.read_env(
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRETdd_KEY')
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
 
@@ -107,15 +108,15 @@ LOGGING = {
         "require_debug_false": {"()": "django.utils.log.RequireDebugFalse"},
     },
     "handlers": {
-        'errors_file': {
-            'level': 'ERROR',
-            'class': 'logging.handlers.RotatingFileHandler',
-            # 5 MB
-            'maxBytes': 1024*1024*5,
-            'backupCount': 5,
-            'filename': os.path.join(BASE_DIR, '..', 'logs', 'logs_errors.log'),
-            'filters': ['require_debug_false'],
-        },
+        # 'errors_file': {
+        #     'level': 'ERROR',
+        #     'class': 'logging.handlers.RotatingFileHandler',
+        #     # 5 MB
+        #     'maxBytes': 1024*1024*5,
+        #     'backupCount': 5,
+        #     'filename': os.path.join(BASE_DIR, '..', 'logs', 'logs_errors.log'),
+        #     'filters': ['require_debug_false'],
+        # },
         "console": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
@@ -124,16 +125,16 @@ LOGGING = {
         },
     },
     "loggers": {
-        'django.request': {
-            'handlers': ['errors_file'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
-        "django": {
-            "handlers": ["console", "errors_file"],
-            "level": "INFO",
-            "propagate": True,
-        },
+        # 'django.request': {
+        #     'handlers': ['errors_file'],
+        #     'level': 'ERROR',
+        #     'propagate': False,
+        # },
+        # "django": {
+        #     "handlers": ["console", "errors_file"],
+        #     "level": "INFO",
+        #     "propagate": True,
+        # },
         "django.server": {"handlers": ["console"], "level": "INFO", "propagate": True},
     },
 }
