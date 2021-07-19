@@ -150,3 +150,12 @@ Mặc định site sẽ chạy ở localhost:8087
 
 Các file scss và js hiện tại import tại file loader. Css sẽ tự render ra và append vào header của html
 
+
+# Deploy to Heroku:
+
+Cần sử dụng 2 buildpack:
+
+```
+$ heroku buildpacks:add --index 1 heroku/python -a [ten-app] 
+$ heroku buildpacks:add --index 1 heroku/nodejs -a [ten-app]
+```
