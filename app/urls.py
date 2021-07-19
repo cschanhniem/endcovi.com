@@ -36,7 +36,7 @@ urlpatterns = [
     path('chaining/', include('smart_selects.urls')),
     url(r'^admin/dynamic_raw_id/', include('dynamic_raw_id.urls')),
 
-    path('admin/', admin.site.urls, name="admin_home"),
+    path('save-lives/', admin.site.urls, name="admin_home"),
     path('select2/', include('django_select2.urls')),
 
     url(
