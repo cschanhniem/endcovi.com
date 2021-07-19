@@ -64,10 +64,10 @@ class CuuHoFactory(DjangoModelFactory):
     class Meta:
         model = models.CuuHo
 
-    name = fuzzy.FuzzyText(prefix="Đội cứu hộ ")
+    name = fuzzy.FuzzyText(prefix="Đội hỗ trợ ")
     status = fuzzy.FuzzyChoice(choices=get_status_choices(models.CUUHO_STATUS))
     tinh = fuzzy.FuzzyChoice(choices=models.Tinh.objects.all())
-    location = fuzzy.FuzzyText(prefix="Phạm vi cứu hộ ")
+    location = fuzzy.FuzzyText(prefix="Phạm vi hỗ trợ ")
     phone = fuzzy.FuzzyText(chars=string.digits)
     note = fuzzy.FuzzyText(prefix="Ghi Chú ", length=100)
     volunteer = SubFactory(TNVFactory)

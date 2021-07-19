@@ -12,7 +12,7 @@ INSERT INTO app_trangthaihodan (id, name, created_time, update_time) VALUES\
 (1, 'Chưa xác minh', NOW(), NOW()),\
 (2, 'Không gọi được', NOW(), NOW()),\
 (3, 'Cần ứng cứu gấp', NOW(), NOW()),\
-(4, 'Đã gửi cứu hộ', NOW(), NOW()),\
+(4, 'Đã gửi hỗ trợ', NOW(), NOW()),\
 (5, 'Cần thức ăn', NOW(), NOW()),\
 (6, 'Cần thuốc men', NOW(), NOW()),\
 (7, 'Đã an toàn', NOW(), NOW());\

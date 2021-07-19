@@ -15,9 +15,9 @@ class Migration(migrations.Migration):
             name='CuuHo',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.TextField(blank=True, default='', verbose_name='Đội cứu hộ')),
-                ('status', models.IntegerField(choices=[(0, 'Chưa xác minh'), (1, 'Sẵn sàng'), (2, 'Không gọi được'), (3, 'Đang cứu hộ'), (4, 'Đang nghỉ')], default=0, verbose_name='Tình trạng')),
-                ('location', models.TextField(blank=True, default='', verbose_name='Phạm vi cứu hộ')),
+                ('name', models.TextField(blank=True, default='', verbose_name='Đội hỗ trợ')),
+                ('status', models.IntegerField(choices=[(0, 'Chưa xác minh'), (1, 'Sẵn sàng'), (2, 'Không gọi được'), (3, 'Đang hỗ trợ'), (4, 'Đang nghỉ')], default=0, verbose_name='Tình trạng')),
+                ('location', models.TextField(blank=True, default='', verbose_name='Phạm vi hỗ trợ')),
                 ('phone', models.TextField(blank=True, default='', verbose_name='Điện thoại liên hệ')),
                 ('note', models.TextField(blank=True, default='', verbose_name='Ghi chú')),
             ],

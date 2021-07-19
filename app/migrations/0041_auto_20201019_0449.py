@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='cuuho',
-            options={'verbose_name': 'Danh sách đội Cứu hộ', 'verbose_name_plural': 'Danh sách đội Cứu hộ'},
+            options={'verbose_name': 'Danh sách đội hỗ trợ', 'verbose_name_plural': 'Danh sách đội hỗ trợ'},
         ),
         migrations.AlterModelOptions(
             name='hodan',
@@ -72,7 +72,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='hodan',
             name='cuuho',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='app.cuuho', verbose_name='Đơn vị cứu hộ tiếp cận'),
+            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.CASCADE, to='app.cuuho', verbose_name='Đơn vị hỗ trợ tiếp cận'),
         ),
         migrations.AlterField(
             model_name='hodan',

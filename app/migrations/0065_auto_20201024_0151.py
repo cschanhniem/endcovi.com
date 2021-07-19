@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='cuuho',
             name='status',
-            field=models.IntegerField(choices=[(0, 'Chưa xác minh'), (1, 'Sẵn sàng'), (2, 'Không gọi được'), (5, 'Cần hỗ trợ'), (3, 'Đang cứu hộ'), (4, 'Đang nghỉ')], default=0, verbose_name='Tình trạng'),
+            field=models.IntegerField(choices=[(0, 'Chưa xác minh'), (1, 'Sẵn sàng'), (2, 'Không gọi được'), (5, 'Cần hỗ trợ'), (3, 'Đang hỗ trợ'), (4, 'Đang nghỉ')], default=0, verbose_name='Tình trạng'),
         ),
         migrations.AlterField(
             model_name='cuuho',

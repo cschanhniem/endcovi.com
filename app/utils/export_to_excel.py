@@ -35,7 +35,7 @@ def export_ho_dan_as_excel_action(fields=None, exclude=None, header=True):
         field_names = ["name", "status", "location", "tinh",
                        "xa", "huyen", "phone", "cuuho", "update_time", "note"]
         display_names = ["Tên hộ dân", "Tình trạng", "Vị trí", "Tỉnh", "Xã",
-                         "Huyện", "Sdt", "Cứu hộ", "Thời gian cuối cùng cập nhật", "Ghi chú"]
+                         "Huyện", "Sdt", "hỗ trợ", "Thời gian cuối cùng cập nhật", "Ghi chú"]
         file_name = "Danh_sach_ho_dan"
 
         output = io.BytesIO()

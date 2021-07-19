@@ -249,7 +249,7 @@ class HoDanForm(ModelForm):
         self.fields['volunteer'].label = 'Tình nguyện viên'
 
         self.fields['cuuho'].label_from_instance = self.label_from_cuuho
-        self.fields['cuuho'].label = 'Đội cứu hộ'
+        self.fields['cuuho'].label = 'Đội hỗ trợ'
 
         self.fields["tinh"].label = "Tỉnh"
         self.fields["tinh"].help_text = "Nhấn vào để chọn tỉnh"
@@ -465,7 +465,7 @@ class HoDanCuuHoStatisticBase(admin.ModelAdmin):
         url = reverse('admin:app_cuuho_changelist')
         tag = f'<a href="{url}?{self.URL_CUSTOM_TAG}={obj.pk}&status=1">{len(cuuho)}</a>'
         return tag
-    get_cuu_ho_san_sang.short_description = "Đơn vị cứu hộ sẵn sàng"
+    get_cuu_ho_san_sang.short_description = "Đơn vị hỗ trợ sẵn sàng"
     get_cuu_ho_san_sang.allow_tags = True
 
     @mark_safe
