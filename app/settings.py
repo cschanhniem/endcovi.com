@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django.contrib.postgres',
     'django_extensions',
+    'cachalot'
 ]
 
 
