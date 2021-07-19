@@ -1,6 +1,8 @@
-# HỆ THỐNG THÔNG TIN CỨU HỘ MIỀN TRUNG
+# HỆ THỐNG THÔNG TIN CỨU HỘ COVID 2021 
 
-https://cuuhomientrung.info
+(hệ thống được forked từ cuuhomientrung.info) 
+
+https://endcovi.com 
 
 Website phục vụ công tác cứu hộ, cứu nạn theo mô hình crowdsource (huy động sức lực của cộng đồng để vận hành). Mô hình hoạt động theo nguyên tắc:
 
