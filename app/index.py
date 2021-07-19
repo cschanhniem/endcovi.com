@@ -7,7 +7,7 @@ from django.views.generic import TemplateView
 
 from .settings import TIME_ZONE
 from .admin import TinhAdmin
-from .models import HoDan, CuuHo, TinhNguyenVien
+from .models import HoDan, CuuHo, TinTuc, TinhNguyenVien
 
 
 class IndexView(TemplateView):
@@ -23,6 +23,7 @@ class IndexView(TemplateView):
         context["tong_doi_cuu_ho_san_sang"] = CuuHo.objects.filter(status=1).count()
         context["tong_tinh_nguyen_vien"] = TinhNguyenVien.objects.count()
         context["tinh_infos"] = self._get_tinh_info()
+        context["news"] = TinTuc.objects.all().order_by("-id")
         return context
 
     def _get_tinh_info(self, limit=10):
