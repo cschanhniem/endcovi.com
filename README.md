@@ -20,7 +20,7 @@ Bằng việc duy trì một nguồn thông tin đầy đủ, được cập nh�
 
 ## Nếu bạn là Tình nguyện viên, bạn có thể:
 
-1. Vào trang https://cuuhomientrung.info
+1. Vào trang https://endcovi.com 
 2. Tự thêm contact của bạn vào Danh sách Tình nguyện viên
 3. Đăng tải / Nhận xác minh các thông tin kêu cứu mà chưa có Tình nguyện viên nhận cập nhật
 4. Đăng tải / Nhận xác minh các thông tin về các đội cứu hộ mà chưa có Tình nguyện viên nhận cập nhật
@@ -32,7 +32,7 @@ Bằng việc duy trì một nguồn thông tin đầy đủ, được cập nh�
 
 ## Nếu bạn là Đơn vị cứu hộ, bạn có thể
 
-1. Vào trang https://cuuhomientrung.info
+1. Vào trang https://endcovi.com 
 2. Tự thêm Đơn vị cứu hộ của bạn vào Danh sách Cứu hộ
 3. Chủ động update thông tin của đơn vị lên trang để giúp các Tình nguyện viên khác điều phối hoạt động cứu hộ tốt hơn
 4. Xem thống kê số lượng gia đình cần ứng cứu & số đơn vị cứu hộ tại cùng khu vực để chủ động điều phối nguồn lực tới các khu vực cần thiết hơn
@@ -42,7 +42,7 @@ Bằng việc duy trì một nguồn thông tin đầy đủ, được cập nh�
 1. Tạo pull request để bổ sung tính năng cho dự án
 2. Nếu là senior, bạn có thể ứng cử làm manager cho dự án này để tiếp tục hoàn thiện dự án phục vụ cộng đồng
 
-CÙNG CHUNG TAY VÌ KHÚC RUỘT MIỀN TRUNG !!!
+CÙNG CHUNG TAY KẾT THÚC ĐẠI DỊCH COVID-19
 
 # HƯỚNG DẪN CÀI ĐẶT
 
@@ -57,11 +57,11 @@ CÙNG CHUNG TAY VÌ KHÚC RUỘT MIỀN TRUNG !!!
 1. Cài đặt các thư viện cần thiết (cần cài Python3.6 trở lên và Pip3 trước)
 
 ```
-pip3 install -r requirements/development.txt
+pip3 install -r requirements_development.txt
 ```
 Cài các thư viện để chạy test environment nếu cần thiết (thêm dummy data, chạy unittests)
 ```
-pip3 install -r requirements/testing.txt
+pip3 install -r requirements_testing.txt
 ```
 
 ~~2. Thay đổi cấu hình database từ postgresql sang sqlite (để chạy được ở local)~~
@@ -150,21 +150,6 @@ Mặc định site sẽ chạy ở localhost:8087
 
 Các file scss và js hiện tại import tại file loader. Css sẽ tự render ra và append vào header của html
 
-## Tích hợp API
-
-Restful api doc [tại đây](https://cuuhomientrung.info/api/)
-
-Sau khi bạn được cấp `api_token`, các request sẽ follow theo doc như bình thường. Ngoài ra bạn phải thêm vào header tham số sau
-
-```html
-Authorization: Token [api_token]
-```
-
-Ví dụ
-
-```html
-curl -X GET [hostname]/api/cuuho/ -H 'Authorization: Token [api_token]'
-```
 
 # Deploy to Heroku:
 
