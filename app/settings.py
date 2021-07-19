@@ -179,7 +179,7 @@ MIDDLEWARE = [
     'app.middleware.CustomCacheMiddleware',
 ]
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 if DEBUG:
     MIDDLEWARE = [
