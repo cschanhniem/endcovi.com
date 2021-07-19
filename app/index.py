@@ -152,7 +152,7 @@ class IndexView(TemplateView):
 
     def _get_cuu_ho_by_tinh(self):
         """
-        Lấy danh sách tất cả Cứu Hộ rồi group lại theo tỉnh.
+        Lấy danh sách tất cả hỗ trợ rồi group lại theo tỉnh.
         Return:
             list of dict: Sort theo id của tỉnh
             [

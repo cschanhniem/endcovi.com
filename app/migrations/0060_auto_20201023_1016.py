@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='historicalhodan',
             name='status',
-            field=models.IntegerField(choices=[(0, 'Chưa xác minh'), (1, 'Cần ứng cứu gấp'), (2, 'Không gọi được'), (3, 'Đã được cứu'), (4, 'Gặp nạn'), (5, 'Đã gửi cứu hộ'), (5, 'Cần thức ăn'), (6, 'Cần thuốc men'), (7, 'Đã ổn')], default=0, verbose_name='Tình trạng'),
+            field=models.IntegerField(choices=[(0, 'Chưa xác minh'), (1, 'Cần ứng cứu gấp'), (2, 'Không gọi được'), (3, 'Đã được cứu'), (4, 'Gặp nạn'), (5, 'Đã gửi hỗ trợ'), (5, 'Cần thức ăn'), (6, 'Cần thuốc men'), (7, 'Đã ổn')], default=0, verbose_name='Tình trạng'),
         ),
         migrations.AlterField(
             model_name='hodan',
             name='status',
-            field=models.IntegerField(choices=[(0, 'Chưa xác minh'), (1, 'Cần ứng cứu gấp'), (2, 'Không gọi được'), (3, 'Đã được cứu'), (4, 'Gặp nạn'), (5, 'Đã gửi cứu hộ'), (5, 'Cần thức ăn'), (6, 'Cần thuốc men'), (7, 'Đã ổn')], default=0, verbose_name='Tình trạng'),
+            field=models.IntegerField(choices=[(0, 'Chưa xác minh'), (1, 'Cần ứng cứu gấp'), (2, 'Không gọi được'), (3, 'Đã được cứu'), (4, 'Gặp nạn'), (5, 'Đã gửi hỗ trợ'), (5, 'Cần thức ăn'), (6, 'Cần thuốc men'), (7, 'Đã ổn')], default=0, verbose_name='Tình trạng'),
         ),
     ]

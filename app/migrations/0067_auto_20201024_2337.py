@@ -12,7 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AlterModelOptions(
             name='cuuho',
-            options={'verbose_name': '2. Các đội Cứu hộ', 'verbose_name_plural': '2. Các đội Cứu hộ'},
+            options={'verbose_name': '2. Các đội hỗ trợ', 'verbose_name_plural': '2. Các đội hỗ trợ'},
         ),
         migrations.AlterModelOptions(
             name='historicalhodan',

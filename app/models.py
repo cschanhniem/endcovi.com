@@ -28,7 +28,7 @@ CUUHO_STATUS = [
     (1, 'Sẵn sàng'),
     (2, 'Không gọi được'),
     (5, 'Cần hỗ trợ'),
-    (3, 'Đang cứu hộ'),
+    (3, 'Đang hỗ trợ'),
     (4, 'Đang nghỉ'),
 ]
 
@@ -126,7 +126,7 @@ class TinhNguyenVien(models.Model):
 
 class CuuHo(models.Model):
     update_time = models.DateTimeField(auto_now=True, verbose_name='Cập nhật')
-    name = models.TextField(blank=True, default='', verbose_name="Đội cứu hộ")
+    name = models.TextField(blank=True, default='', verbose_name="Đội hỗ trợ")
     status = models.IntegerField(
         choices=CUUHO_STATUS, default=0, verbose_name="Tình trạng")
     tinh = models.ForeignKey(
@@ -164,7 +164,7 @@ class CuuHo(models.Model):
         related_name="cuuho_reversed"
     )
     location = models.TextField(
-        blank=True, default='', verbose_name='Phạm vi cứu hộ')
+        blank=True, default='', verbose_name='Phạm vi hỗ trợ')
     phone = models.TextField(blank=True, default='',
                              verbose_name='Điện thoại liên hệ')
     note = models.TextField(blank=True, default='', verbose_name='Ghi chú')
@@ -176,8 +176,8 @@ class CuuHo(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = 'Các đội Cứu hộ'
-        verbose_name_plural = '2. Các đội Cứu hộ'
+        verbose_name = 'Các đội hỗ trợ'
+        verbose_name_plural = '2. Các đội hỗ trợ'
 
     # def save(self, *args, **kwargs):
     #     # Auto update huyen
@@ -255,7 +255,7 @@ class HoDan(models.Model):
     phone_expored = models.TextField(blank=True, default='',)
     note = models.TextField(blank=True, default='', verbose_name='Ghi chú')
     volunteer = models.ForeignKey(TinhNguyenVien, blank=True, null=True, verbose_name="Tình nguyện viên xác minh", on_delete=models.CASCADE)
-    cuuho = models.ForeignKey(CuuHo, null=True, blank= True, verbose_name="Đơn vị cứu hộ tiếp cận", on_delete=models.CASCADE)
+    cuuho = models.ForeignKey(CuuHo, null=True, blank= True, verbose_name="Đơn vị hỗ trợ tiếp cận", on_delete=models.CASCADE)
     created_time = models.DateTimeField(auto_now_add=True, verbose_name='Ngày tạo')
     geo_location = CustomLocationField(null=True, blank=True)
     history = HistoricalRecords(
