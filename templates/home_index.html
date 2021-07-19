@@ -142,11 +142,15 @@
     <div class="col-lg-6 mb-3">
       <div class="card card-homepage bg-white">
         <div class="card-header">
-          <h5>Những links quan trọng</h5>
+          <h5>Links quan trọng</h5> 
+          
+            <a class="ml-auto"  href="https://www.endcovi.com/save-lives/app/tintuc/add/" target="_blank">Gửi Link vào đây</a>
           
         </div>
         <div class="card-body px-0">
+          
           <ul>
+            
             {% for new in news %}
             <li><a href="{{new.url}}" target="_blank"><b>{{new.title}}</b></a> {{new.note}}</li>
             </li>
