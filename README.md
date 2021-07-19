@@ -1,6 +1,6 @@
 # HỆ THỐNG THÔNG TIN CỨU HỘ COVID 2021 
 
-(hệ thống được forked từ cuuhomientrung.info) 
+(hệ thống được forked từ endcovi.com) 
 
 https://endcovi.com 
 
