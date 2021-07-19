@@ -38,18 +38,18 @@ class Token(BaseTokenClass):
 
 
 class Tinh(models.Model):
-    name = models.TextField(blank=True, default='', verbose_name="Tỉnh")
+    name = models.TextField(blank=True, default='', verbose_name="Tỉnh/TP")
 
     def __str__(self):
         return self.name
 
     class Meta:
-        verbose_name = "3. Thống kê Tỉnh"
-        verbose_name_plural = "3. Thống kê Tỉnh"
+        verbose_name = "3. Thống kê Tỉnh/TP"
+        verbose_name_plural = "3. Thống kê Tỉnh/TP"
 
 
 class Huyen(models.Model):
-    name = models.TextField(blank=True, default='', verbose_name="Huyện")
+    name = models.TextField(blank=True, default='', verbose_name="Quận/Huyện")
     tinh = models.ForeignKey(
         Tinh, blank=True, null=True, on_delete=models.CASCADE)
 
@@ -57,12 +57,12 @@ class Huyen(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "4. Thống kê Huyện"
-        verbose_name_plural = "4. Thống kê Huyện"
+        verbose_name = "4. Thống kê Quận/Huyện"
+        verbose_name_plural = "4. Thống kê Quận/Huyện"
 
 
 class Xa(models.Model):
-    name = models.TextField(blank=True, default='', verbose_name="Xã")
+    name = models.TextField(blank=True, default='', verbose_name="Xã/Phường")
     huyen = models.ForeignKey(
         Huyen, blank=True, null=True, on_delete=models.CASCADE)
 
@@ -70,12 +70,12 @@ class Xa(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "5. Thống kê Xã"
-        verbose_name_plural = "5. Thống kê Xã"
+        verbose_name = "5. Thống kê Xã/Phường"
+        verbose_name_plural = "5. Thống kê Xã/Phường"
 
 
 class Thon(models.Model):
-    name = models.TextField(blank=True, default='', verbose_name="Thôn")
+    name = models.TextField(blank=True, default='', verbose_name="Thôn/Ấp")
     huyen = models.ForeignKey(
         Huyen, blank=True, null=True, on_delete=models.CASCADE)
 
@@ -83,8 +83,8 @@ class Thon(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = "Thôn"
-        verbose_name_plural = "Thôn"
+        verbose_name = "Thôn/Ấp"
+        verbose_name_plural = "Thôn/Ấp"
 
 
 class TrangThaiHoDan(models.Model):

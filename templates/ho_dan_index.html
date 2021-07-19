@@ -13,7 +13,7 @@
     </div>
     <div class="col-sm-2 mb-2">
       <select class="form-control select select-searchable" id="select-tinh">
-        <option value="-1"> Tất cả tỉnh </option>
+        <option value="-1"> Tất cả tỉnh/tp </option>
         {% for tinh in list_tinh %}
         <option {% if tinh.id|stringformat:"i" == filtered.tinh %} selected {% endif %} value="{{ tinh.id }}">{{ tinh.name }}</option>
         {% endfor %}
@@ -21,7 +21,7 @@
     </div>
     <div class="col-sm-2 mb-2">
       <select class="form-control select select-searchable" id="select-huyen">
-        <option value="-1"> Tất cả huyện </option>
+        <option value="-1"> Tất cả quận/huyện </option>
         {% for huyen in list_huyen %}
           <option {% if huyen.id|stringformat:"i" == filtered.huyen %} selected {% endif %}
             tinh-id="{{ huyen.tinh.id }}" value="{{ huyen.id }}">{{ huyen.name }}
@@ -31,7 +31,7 @@
     </div>
     <div class="col-sm-2 mb-2">
       <select class="form-control select select-searchable" id="select-xa">
-        <option value="-1"> Tất cả xã </option>
+        <option value="-1"> Tất cả xã/phường </option>
         {% for xa in list_xa %}
           <option {% if xa.id|stringformat:"i" == filtered.xa %} selected {% endif %}
             huyen-id="{{ xa.huyen.id }}" value="{{ xa.id }}">{{ xa.name }}</option>
