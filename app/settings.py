@@ -371,7 +371,8 @@ if DEPLOY_ENV in ('staging', 'production'):
     }
 
     # Set the cache backend to select2
-    SELECT2_CACHE_BACKEND = 'select2'
+    # SELECT2_CACHE_BACKEND = 'select2'
+    SELECT2_CACHE_BACKEND = 'default'
 else:
     # ignore all cache time setting
     DEPLOY_ENV_CACHE_MODIFIER = 0
