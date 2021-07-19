@@ -167,6 +167,7 @@ if SENTRY_DSN:
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #add whitenoise to the middleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'app.middleware.RestAPICsrfMiddleware',
@@ -177,6 +178,8 @@ MIDDLEWARE = [
     'simple_history.middleware.HistoryRequestMiddleware',
     'app.middleware.CustomCacheMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 if DEBUG:
     MIDDLEWARE = [
@@ -294,10 +297,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 STATIC_ROOT = os.path.join(BASE_DIR, 'static', 'deploy')
+print("STATIC_ROOT {}".format(STATIC_ROOT))
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
+
     os.path.join(BASE_DIR, 'app', 'static'),
     os.path.join(BASE_DIR, 'app', 'static', 'webpack_bundles'),
 )
