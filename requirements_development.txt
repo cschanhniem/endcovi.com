@@ -2,7 +2,7 @@
 # =====================================
 
 # Include the base requirements
--r base.txt
+-r requirements.txt
 
 # Code style
 autopep8==1.5.4

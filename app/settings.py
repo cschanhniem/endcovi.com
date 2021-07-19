@@ -16,6 +16,11 @@ import sentry_sdk
 import calendar
 import time
 
+from dotenv import load_dotenv
+import dj_database_url
+
+load_dotenv()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_UPLOAD_MAX_NUMBER_FIELDS = 10000
@@ -33,7 +38,7 @@ env = environ.Env(
     DEPLOY_ENV=(str, 'local'),
     GIT_VERSION=(str, None),
     CSRF_COOKIE_SECURE=(bool, False),
-    SECRET_KEY=(str, 'change_me'),
+    SECRET_KEY=(str, 'changesdfdsfsdfsdf_me'),
 )
 env.read_env(
     os.path.join(BASE_DIR, '..', '.env')
@@ -103,15 +108,15 @@ LOGGING = {
         "require_debug_false": {"()": "django.utils.log.RequireDebugFalse"},
     },
     "handlers": {
-        'errors_file': {
-            'level': 'ERROR',
-            'class': 'logging.handlers.RotatingFileHandler',
-            # 5 MB
-            'maxBytes': 1024*1024*5,
-            'backupCount': 5,
-            'filename': os.path.join(BASE_DIR, '..', 'logs', 'logs_errors.log'),
-            'filters': ['require_debug_false'],
-        },
+        # 'errors_file': {
+        #     'level': 'ERROR',
+        #     'class': 'logging.handlers.RotatingFileHandler',
+        #     # 5 MB
+        #     'maxBytes': 1024*1024*5,
+        #     'backupCount': 5,
+        #     'filename': os.path.join(BASE_DIR, '..', 'logs', 'logs_errors.log'),
+        #     'filters': ['require_debug_false'],
+        # },
         "console": {
             "level": "DEBUG",
             "class": "logging.StreamHandler",
@@ -120,16 +125,16 @@ LOGGING = {
         },
     },
     "loggers": {
-        'django.request': {
-            'handlers': ['errors_file'],
-            'level': 'ERROR',
-            'propagate': False,
-        },
-        "django": {
-            "handlers": ["console", "errors_file"],
-            "level": "INFO",
-            "propagate": True,
-        },
+        # 'django.request': {
+        #     'handlers': ['errors_file'],
+        #     'level': 'ERROR',
+        #     'propagate': False,
+        # },
+        # "django": {
+        #     "handlers": ["console", "errors_file"],
+        #     "level": "INFO",
+        #     "propagate": True,
+        # },
         "django.server": {"handlers": ["console"], "level": "INFO", "propagate": True},
     },
 }
@@ -211,16 +216,41 @@ TEMPLATES = [
 WSGI_APPLICATION = 'app.wsgi.application'
 SITE_ID = 1
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': env('DB_NAME'),
+#         'USER': env('DB_USER'),
+#         'PASSWORD': env('DB_PASSWORD'),
+#         'HOST': env('DB_HOSTNAME'),
+#         'PORT': env('DB_PORT'),
+#     }
+# }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': env('DB_NAME'),
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOSTNAME'),
-        'PORT': env('DB_PORT'),
+        "default": {
+            "ENGINE" : "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+        }
     }
-}
+
+DATABASES['default'] = dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+
+
+if os.getenv('LOCAL', 'False') == 'True':
+
+    # Database
+    # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+    DATABASES = {
+        "default": {
+            "ENGINE" : "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, "db.sqlite3")
+        }
+    }
+
+    DEBUG=True
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
