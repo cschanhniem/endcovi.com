@@ -35,9 +35,9 @@ vi_formats.DATETIME_FORMAT = "d/m/y H:i"
 PAGE_SIZE = 30
 
 # admin interface
-admin.site.site_header = 'Hệ thống thông tin Cứu hộ miền Trung'
-admin.site.site_title = 'Hệ thống thông tin Cứu hộ miền Trung'
-admin.index_title = 'Hệ thống thông tin Cứu hộ miền Trung'
+admin.site.site_header = 'Hệ thống thông tin EndCovi | Góp sức chấm dứt Covid'
+admin.site.site_title = 'Hệ thống thông tin EndCovi | Góp sức chấm dứt Covid'
+admin.index_title = 'Hệ thống thông tin EndCovi | Góp sức chấm dứt Covid'
 admin.site_url = '/'
 
 
