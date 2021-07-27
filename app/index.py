@@ -19,7 +19,7 @@ class IndexView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["tong_hodan_da_duoc_cuu"] = HoDan.objects.filter(status_id=7).count()
-        context["tong_hodan_cap_cuu"] = HoDan.objects.filter(status_id=3).count()
+        context["tong_hodan_cap_cuu"] = HoDan.objects.exclude(status_id=7).count()
         context["tong_doi_cuu_ho_san_sang"] = CuuHo.objects.filter(status=1).count()
         context["tong_tinh_nguyen_vien"] = TinhNguyenVien.objects.count()
         context["tinh_infos"] = self._get_tinh_info()

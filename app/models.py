@@ -9,6 +9,9 @@ from simple_history.signals import (
     post_create_historical_record,
 )
 from .utils.phone_number import export_phone_numbers
+from safedelete.models import SafeDeleteModel
+from safedelete.models import HARD_DELETE_NOCASCADE
+import datetime
 
 RESOURCE_STATUS = [
     (1, 'Sẵn sàng'),
@@ -37,7 +40,7 @@ class Token(BaseTokenClass):
         abstract = 'rest_framework.authtoken' not in settings.INSTALLED_APPS
 
 
-class Tinh(models.Model):
+class Tinh(SafeDeleteModel):
     name = models.TextField(blank=True, default='', verbose_name="Tỉnh/TP")
 
     def __str__(self):
@@ -48,7 +51,7 @@ class Tinh(models.Model):
         verbose_name_plural = "3. Thống kê Tỉnh/TP"
 
 
-class Huyen(models.Model):
+class Huyen(SafeDeleteModel):
     name = models.TextField(blank=True, default='', verbose_name="Quận/Huyện")
     tinh = models.ForeignKey(
         Tinh, blank=True, null=True, on_delete=models.CASCADE)
@@ -61,7 +64,7 @@ class Huyen(models.Model):
         verbose_name_plural = "4. Thống kê Quận/Huyện"
 
 
-class Xa(models.Model):
+class Xa(SafeDeleteModel):
     name = models.TextField(blank=True, default='', verbose_name="Xã/Phường")
     huyen = models.ForeignKey(
         Huyen, blank=True, null=True, on_delete=models.CASCADE)
@@ -74,7 +77,7 @@ class Xa(models.Model):
         verbose_name_plural = "5. Thống kê Xã/Phường"
 
 
-class Thon(models.Model):
+class Thon(SafeDeleteModel):
     name = models.TextField(blank=True, default='', verbose_name="Thôn/Ấp")
     huyen = models.ForeignKey(
         Huyen, blank=True, null=True, on_delete=models.CASCADE)
@@ -87,7 +90,7 @@ class Thon(models.Model):
         verbose_name_plural = "Thôn/Ấp"
 
 
-class TrangThaiHoDan(models.Model):
+class TrangThaiHoDan(SafeDeleteModel):
     name = models.TextField(blank=True, default='', verbose_name="Tên trạng thái")
     created_time = models.DateTimeField(auto_now=True, verbose_name='Ngày tạo')
     update_time = models.DateTimeField(auto_now=True, verbose_name='Cập nhật')
@@ -99,7 +102,7 @@ class TrangThaiHoDan(models.Model):
         return u'%s' % (self.name)
 
 
-class TinhNguyenVien(models.Model):
+class TinhNguyenVien(SafeDeleteModel):
     name = models.TextField(blank=True, default='', verbose_name='Họ và tên')
     status = models.IntegerField(
         choices=TINHNGUYEN_STATUS, default=0, verbose_name="Tình trạng")
@@ -124,7 +127,7 @@ class TinhNguyenVien(models.Model):
         verbose_name_plural = '7. Tình nguyên viên thông tin'
 
 
-class CuuHo(models.Model):
+class CuuHo(SafeDeleteModel):
     update_time = models.DateTimeField(auto_now=True, verbose_name='Cập nhật')
     name = models.TextField(blank=True, default='', verbose_name="Đội hỗ trợ")
     status = models.IntegerField(
@@ -209,7 +212,7 @@ class IPAddressHistoricalModel(models.Model):
         abstract = True
 
 
-class HoDan(models.Model):
+class HoDan(SafeDeleteModel):
     name = models.TextField(blank=True, default='', verbose_name="Hộ dân")
     update_time = models.DateTimeField(auto_now=True, verbose_name='Cập nhật')
     location = models.TextField(blank=True, default='', verbose_name='Địa chỉ')
@@ -269,11 +272,24 @@ class HoDan(models.Model):
     class Meta:
         verbose_name = 'Hộ dân cần ứng cứu'
         verbose_name_plural = '1. Hộ dân cần ứng cứu'
+        ordering = ['-update_time']
+
+    def get_phone(self):
+        if self.status.id == 7:
+            return '[đã ần]'
+        return self.phone
+
+    def get_location(self):
+        if self.status.id == 7:
+            return '[đã ần]'
+        return self.location
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         # Craw then export phone number before commit to database
         self.phone_expored = export_phone_numbers(self.phone)
+
+        self.update_time = datetime.datetime.now()
 
         # Save as normal
         super().save(force_insert, force_update, using, update_fields)
@@ -302,7 +318,7 @@ def post_create_historical_record_callback(sender, **kwargs):
         pass
 
 
-class NguonLuc(models.Model):
+class NguonLuc(SafeDeleteModel):
     name = models.TextField(blank=True, default='', verbose_name="Nguồn lực")
     update_time = models.DateTimeField(auto_now=True, verbose_name='Cập nhật')
     location = models.TextField(blank=True, default='', verbose_name='Địa chỉ')
@@ -332,7 +348,7 @@ class NguonLuc(models.Model):
         verbose_name = "Nguồn trợ giúp khác"
 
 
-class TinTuc(models.Model):
+class TinTuc(SafeDeleteModel):
     title = models.TextField(blank=True, default='', verbose_name="Tiêu Đề")
     url = models.TextField(blank=True, default='', verbose_name="Link")
     update_time = models.DateTimeField(auto_now=True, verbose_name='Cập nhật')
