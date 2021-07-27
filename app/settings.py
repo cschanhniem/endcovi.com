@@ -57,6 +57,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'safedelete',
     'admin_interface',
     'colorfield',
     'django.contrib.admin',
