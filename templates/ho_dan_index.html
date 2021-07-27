@@ -55,7 +55,7 @@
             <th> STT </th>
             <th class="citizen-td-name"> Hộ dân </th>
             <th> Trạng thái </th>
-            <th class="citizen-td-counter"> SL </th>
+            <th class="citizen-td-counter"> Số người </th>
             <th class="citizen-td-address"> Địa chỉ </th>
             <th class="citizen-td-phone"> Số điện thoại </th>
             <th> Ghi chú </th>
@@ -77,12 +77,12 @@
                 </div>
               </td>
               <td class="citizen-td-counter"> {{ hodan.people_number }} </td>
-              <td class="citizen-td-address"> {{ hodan.get_location }}
+              <td class="citizen-td-address"> {{ hodan.location }}
                 {% if hodan.xa %}<br/> {{ hodan.xa }} {% endif %}
                 {% if hodan.huyen %}, {{ hodan.huyen }} {% endif %}
                 {% if hodan.tinh %}, {{ hodan.tinh }} {% endif %}
               </td>
-              <td class="citizen-td-phone"> {{ hodan.get_phone }} </td>
+              <td class="citizen-td-phone"> {{ hodan.phone }} </td>
               <td>
                 <span class="truncated-note">
                   {{ hodan.note|truncatechars_html:200 }}

@@ -273,13 +273,13 @@ class HoDan(SafeDeleteModel):
         verbose_name_plural = '1. Hộ dân cần ứng cứu'
 
     def get_phone(self):
-        if self.status.name.find('an toàn'):
-            return '[được ần]'
+        if self.status.id == 7:
+            return '[đã ần]'
         return self.phone
 
     def get_location(self):
-        if self.status.name.find('an toàn'):
-            return '[được ần]'
+        if self.status.id == 7:
+            return '[đã ần]'
         return self.location
 
     def save(self, force_insert=False, force_update=False, using=None,
