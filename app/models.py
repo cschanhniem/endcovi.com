@@ -272,6 +272,16 @@ class HoDan(SafeDeleteModel):
         verbose_name = 'Hộ dân cần ứng cứu'
         verbose_name_plural = '1. Hộ dân cần ứng cứu'
 
+    def get_phone(self):
+        if self.status.name.find('an toàn'):
+            return '[được ần]'
+        return self.phone
+
+    def get_location(self):
+        if self.status.name.find('an toàn'):
+            return '[được ần]'
+        return self.location
+
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
         # Craw then export phone number before commit to database
