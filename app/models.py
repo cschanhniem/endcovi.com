@@ -11,6 +11,7 @@ from simple_history.signals import (
 from .utils.phone_number import export_phone_numbers
 from safedelete.models import SafeDeleteModel
 from safedelete.models import HARD_DELETE_NOCASCADE
+import datetime
 
 RESOURCE_STATUS = [
     (1, 'Sẵn sàng'),
@@ -271,6 +272,7 @@ class HoDan(SafeDeleteModel):
     class Meta:
         verbose_name = 'Hộ dân cần ứng cứu'
         verbose_name_plural = '1. Hộ dân cần ứng cứu'
+        ordering = ['-update_time']
 
     def get_phone(self):
         if self.status.id == 7:
@@ -286,6 +288,8 @@ class HoDan(SafeDeleteModel):
              update_fields=None):
         # Craw then export phone number before commit to database
         self.phone_expored = export_phone_numbers(self.phone)
+
+        self.update_time = datetime.datetime.now()
 
         # Save as normal
         super().save(force_insert, force_update, using, update_fields)
