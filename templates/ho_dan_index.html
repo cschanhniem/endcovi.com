@@ -78,7 +78,7 @@
               </td>
               <td class="citizen-td-counter"> {{ hodan.people_number }} </td>
               <td class="citizen-td-address"> {{ hodan.get_location }}
-                {% if hodan.xa %}, {{ hodan.xa }} {% endif %}
+                {% if hodan.xa %}<br/> {{ hodan.xa }} {% endif %}
                 {% if hodan.huyen %}, {{ hodan.huyen }} {% endif %}
                 {% if hodan.tinh %}, {{ hodan.tinh }} {% endif %}
               </td>
@@ -119,16 +119,16 @@
               <div class="citizen-info">
                 <div class="citizen-label"> Điện thoại </div>
                 <div class="citizen-value citizen-value--phone">
-                  <a href="tel:{{ hodan.phone }}">
+                  <a href="tel:{{ hodan.get_phone }}">
                     <i class="la la-phone"></i>
-                    {{ hodan.phone }}
+                    {{ hodan.get_phone }}
                   </a>
                 </div>
               </div>
               <div class="citizen-info">
                 <div class="citizen-label"> Địa chỉ </div>
                 <div class="citizen-value">
-                  {{ hodan.location }}
+                  {{ hodan.get_location }}
                   <ul class="citizen-location">
                     {% if hodan.xa %}, {{ hodan.xa }} {% endif %}
                     {% if hodan.huyen %}, {{ hodan.huyen }} {% endif %}
